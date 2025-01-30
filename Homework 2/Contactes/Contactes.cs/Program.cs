@@ -91,7 +91,7 @@ while (runing)
         case 3: //search
 
             {
-                Console.WriteLine("Ingrese el nombre del contacto que desea buscar: ");
+                Console.WriteLine("Ingrese el nombre del contacto que desea buscar:");
                 var nombreContacto = Console.ReadLine();
 
 
@@ -106,10 +106,7 @@ while (runing)
                     var getBestFriend = bestFriends[id];
 
 
-
-                    if (nombreContacto == getName)
-                    {
-
+                    if (nombreContacto == getName) {
 
                         Console.WriteLine($"Datos del contacto: \n " +
                             $"Nombre: {getName}\n" +
@@ -119,24 +116,17 @@ while (runing)
                             $"Email: {getEmail}\n" +
                             $"Edad: {getAge}\n" +
                             $"Es mejor amigo? {getBestFriend}\n");
-                    }
+                    }  
                 }
             }
-
-
 
 
             break;
         case 4: //modify
 
             {
-                Console.WriteLine("Ingrese el nombre del contacto que desea modificar: ");
+                Console.WriteLine("Ingrese el nombre del contacto que desea modificar:");
                 var nombreContacto_m = Console.ReadLine();
-                Console.WriteLine("Ingrese lo que desea modificar: ");
-                var elemento_modificar = Console.ReadLine();
-                Console.WriteLine("Agregue el nuevo valor: ");
-                var nuevo_valor = Console.ReadLine();
-
 
 
                 foreach (var id in ids)
@@ -151,43 +141,50 @@ while (runing)
                     var getBestFriend_m = bestFriends[id];
 
 
-                    if (elemento_modificar == "Nombre" && nombreContacto_m == names[id])
+                    if (nombreContacto_m == names[id])
                     {
-                        names[id] = nuevo_valor;
+                        Console.WriteLine("Ingrese lo que desea modificar:");
+                        var elemento_modificar = Console.ReadLine();
+                        Console.WriteLine("Agregue el nuevo valor:");
+                        var nuevo_valor = Console.ReadLine();
 
-                    }
+                        if (elemento_modificar == "Nombre" && nombreContacto_m == names[id])
+                        {
+                            names[id] = nuevo_valor;
 
-                    if (elemento_modificar == "Apellido" && nombreContacto_m == names[id])
-                    {
-                        lastnames[id] = nuevo_valor;
-                    }
+                        }
 
-                    if (elemento_modificar == "Direccion" && nombreContacto_m == names[id])
-                    {
-                        addresses[id] = nuevo_valor;
-                    }
+                        if (elemento_modificar == "Apellido" && nombreContacto_m == names[id])
+                        {
+                            lastnames[id] = nuevo_valor;
+                        }
 
-                    if (elemento_modificar == "Telefono" && nombreContacto_m == names[id])
-                    {
-                        telephones[id] = nuevo_valor;
-                    }
+                        if (elemento_modificar == "Direccion" && nombreContacto_m == names[id])
+                        {
+                            addresses[id] = nuevo_valor;
+                        }
 
-                    if (elemento_modificar == "Email" && nombreContacto_m == names[id])
-                    {
-                        emails[id] = nuevo_valor;
-                    }
+                        if (elemento_modificar == "Telefono" && nombreContacto_m == names[id])
+                        {
+                            telephones[id] = nuevo_valor;
+                        }
 
-                    if (elemento_modificar == "Edad" && nombreContacto_m == names[id])
-                    {
-                        ages[id] = int.Parse(nuevo_valor);
+                        if (elemento_modificar == "Email" && nombreContacto_m == names[id])
+                        {
+                            emails[id] = nuevo_valor;
+                        }
 
-                    }
+                        if (elemento_modificar == "Edad" && nombreContacto_m == names[id])
+                        {
+                            ages[id] = int.Parse(nuevo_valor);
 
-                    if (elemento_modificar == "Mejor Amigo" && nombreContacto_m == names[id])
-                    {
-                        bestFriends[id] = bool.Parse(nuevo_valor);
-                    }
+                        }
 
+                        if (elemento_modificar == "Mejor Amigo" && nombreContacto_m == names[id])
+                        {
+                            bestFriends[id] = bool.Parse(nuevo_valor);
+                        }
+                    } 
                 }
 
 
@@ -196,11 +193,7 @@ while (runing)
         case 5: //delete
             {
                 Console.WriteLine("Ingrese el nombre del contacto que desea eliminar: ");
-                var nombreContacto_m = Console.ReadLine();
-                Console.WriteLine("Presione enter para eliminar los datos.");
-                var null_value = Console.ReadLine();
-                bool? null_v = null;
-              
+                var nombreContacto_d = Console.ReadLine();
 
 
                 foreach (var id in ids)
@@ -214,7 +207,7 @@ while (runing)
                     var getBestFriend_d = bestFriends[id];
                     
 
-                    if (nombreContacto_m == names[id])
+                    if (nombreContacto_d == names[id])
                     {
                         names[id] = string.Empty;
                         lastnames[id] = string.Empty;
@@ -223,15 +216,11 @@ while (runing)
                         emails[id] = string.Empty;
                         ages[id] = default;
                         bestFriends[id] = default;
-                        
-
-                    }
-
+                    } 
                 }
                 break;
             }
             
-    
     
         case 6:
             runing = false;
