@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 Console.WriteLine("Bienvenido a mi lista de Contactes");
 
@@ -19,7 +20,7 @@ Dictionary<int, bool> bestFriends = new Dictionary<int, bool>();
 
 while (runing)
 {
-    Console.WriteLine(@"1. Agregar Contacto     2. Ver Contactos    3. Buscar Contactos     4. Modificar Contacto   6. Eliminar Contacto    6. Salir");
+    Console.WriteLine(@"1. Agregar Contacto     2. Ver Contactos    3. Buscar Contactos     4. Modificar Contacto   5. Eliminar Contacto    6. Salir");
     Console.WriteLine("Ingrese el número de la opción deseada");
 
     int typeOption = Convert.ToInt32(Console.ReadLine());
@@ -104,11 +105,11 @@ while (runing)
                     var getAge = ages[id];
                     var getBestFriend = bestFriends[id];
 
-                   
+
 
                     if (nombreContacto == getName)
                     {
-                   
+
 
                         Console.WriteLine($"Datos del contacto: \n " +
                             $"Nombre: {getName}\n" +
@@ -136,7 +137,7 @@ while (runing)
                 Console.WriteLine("Agregue el nuevo valor: ");
                 var nuevo_valor = Console.ReadLine();
 
-                
+
 
                 foreach (var id in ids)
                 {
@@ -149,14 +150,16 @@ while (runing)
                     var getAge_m = ages[id];
                     var getBestFriend_m = bestFriends[id];
 
+
                     if (elemento_modificar == "Nombre" && nombreContacto_m == names[id])
                     {
                         names[id] = nuevo_valor;
 
                     }
-                    
-                    if (elemento_modificar == "Apellido" && nombreContacto_m == names[id]){
-                        lastnames[id] = nuevo_valor;  
+
+                    if (elemento_modificar == "Apellido" && nombreContacto_m == names[id])
+                    {
+                        lastnames[id] = nuevo_valor;
                     }
 
                     if (elemento_modificar == "Direccion" && nombreContacto_m == names[id])
@@ -191,8 +194,45 @@ while (runing)
                 break;
             }
         case 5: //delete
-            { }
-            break;
+            {
+                Console.WriteLine("Ingrese el nombre del contacto que desea eliminar: ");
+                var nombreContacto_m = Console.ReadLine();
+                Console.WriteLine("Presione enter para eliminar los datos.");
+                var null_value = Console.ReadLine();
+                bool? null_v = null;
+              
+
+
+                foreach (var id in ids)
+                {
+                    var getName_d = names[id];
+                    var getLastname_d = lastnames[id];
+                    var getAdress_d = addresses[id];
+                    var getTelephone_d = telephones[id];
+                    var getEmail_d = emails[id];
+                    var getAge_d = ages[id];
+                    var getBestFriend_d = bestFriends[id];
+                    
+
+                    if (nombreContacto_m == names[id])
+                    {
+                        names[id] = string.Empty;
+                        lastnames[id] = string.Empty;
+                        addresses[id] = string.Empty;
+                        telephones[id] = string.Empty;
+                        emails[id] = string.Empty;
+                        ages[id] = default;
+                        bestFriends[id] = default;
+                        
+
+                    }
+
+                }
+                break;
+            }
+            
+    
+    
         case 6:
             runing = false;
             break;
