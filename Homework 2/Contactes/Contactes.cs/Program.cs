@@ -91,31 +91,32 @@ while (runing)
         case 3: //search
 
             {
-                Console.WriteLine("Ingrese el nombre del contacto que desea buscar:");
-                var contactName = Console.ReadLine();
+                Console.WriteLine("Por favor ingrese el nombre del contacto que desea buscar:");
+                var getUserContactNameForTheSearchMethod = Console.ReadLine();
 
 
                 foreach (var id in ids)
                 {
-                    var getName = names[id];
-                    var getLastname = lastnames[id];
-                    var getAdress = addresses[id];
-                    var getTelephone = telephones[id];
-                    var getEmail = emails[id];
-                    var getAge = ages[id];
-                    var getBestFriend = bestFriends[id];
+                    var userContactName = names[id];
+                    var userLastname = lastnames[id];
+                    var userAdress = addresses[id];
+                    var userTelephone = telephones[id];
+                    var userEmail = emails[id];
+                    var userAge = ages[id];
+                    var userBestFriend = bestFriends[id];
 
 
-                    if (contactName == getName) {
+                    if (getUserContactNameForTheSearchMethod == names[id])
+                    {
 
                         Console.WriteLine($"Datos del contacto: \n " +
-                            $"Nombre: {getName}\n" +
-                            $"Apellido: {getLastname}\n" +
-                            $"Dirección: {getAdress}\n" +
-                            $"Teléfono: {getTelephone}\n" +
-                            $"Email: {getEmail}\n" +
-                            $"Edad: {getAge}\n" +
-                            $"Es mejor amigo? {getBestFriend}\n");
+                            $"Nombre: {userContactName}\n" +
+                            $"Apellido: {userLastname}\n" +
+                            $"Dirección: {userAdress}\n" +
+                            $"Teléfono: {userTelephone}\n" +
+                            $"Email: {userEmail}\n" +
+                            $"Edad: {userAge}\n" +
+                            $"¿Es mejor amigo? {userBestFriend}\n");
                     }  
                 }
             }
@@ -125,62 +126,63 @@ while (runing)
         case 4: //modify
 
             {
-                Console.WriteLine("Ingrese el nombre del contacto que desea modificar:");
-                var contactName_m = Console.ReadLine();
+                Console.WriteLine("Por favor ingrese el nombre del contacto que desea modificar:");
+                var getUserContactNameForTheModifyMethod = Console.ReadLine();
 
 
                 foreach (var id in ids)
                 {
-                 
-                    var getName_m = names[id];
-                    var getLastname_m = lastnames[id];
-                    var getAdress_m = addresses[id];
-                    var getTelephone_m = telephones[id];
-                    var getEmail_m = emails[id];
-                    var getAge_m = ages[id];
-                    var getBestFriend_m = bestFriends[id];
+
+                    var getUserContactNameToAddNewValue = names[id];
+                    var getUserLastNameToAddNewValue = lastnames[id];
+                    var getUserAdressToAddNewValue = addresses[id];
+                    var getUserTelephoneToAddNewValue = telephones[id];
+                    var getUserEmailToAddNewValue = emails[id];
+                    var getUserAgeToAddNewValue = ages[id];
+                    var getUserfriendToAddNewValue = bestFriends[id];
 
 
-                    if (contactName_m == names[id])
+                    if (getUserContactNameForTheModifyMethod == names[id])
                     {
-                        Console.WriteLine("Ingrese lo que desea modificar:");
+                        Console.WriteLine("Por favor ingrese un número en base a lo que desee modificar del contacto. \n " +
+                            "Opciones: 1. Nombre, 2. Apellido, 3. Direccion, 4. Telefono, 5. Email, 6. Edad, 7. Mejor Amigo.");
                         var modify_element = Console.ReadLine();
-                        Console.WriteLine("Agregue el nuevo valor:");
+                        Console.WriteLine("Por favor agregue el nuevo valor:");
                         var new_value = Console.ReadLine();
 
-                        if (modify_element == "Nombre" && contactName_m == names[id])
+                        if (modify_element == "1" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             names[id] = new_value;
 
                         }
 
-                        if (modify_element == "Apellido" && contactName_m == names[id])
+                        if (modify_element == "2" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             lastnames[id] = new_value;
                         }
 
-                        if (modify_element == "Direccion" && contactName_m == names[id])
+                        if (modify_element == "3" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             addresses[id] = new_value;
                         }
 
-                        if (modify_element == "Telefono" && contactName_m == names[id])
+                        if (modify_element == "4" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             telephones[id] = new_value;
                         }
 
-                        if (modify_element == "Email" && contactName_m == names[id])
+                        if (modify_element == "5" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             emails[id] = new_value;
                         }
 
-                        if (modify_element == "Edad" && contactName_m == names[id])
+                        if (modify_element == "6" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             ages[id] = int.Parse(new_value);
 
                         }
 
-                        if (modify_element == "Mejor Amigo" && contactName_m == names[id])
+                        if (modify_element == "7" && getUserContactNameForTheModifyMethod == names[id])
                         {
                             bestFriends[id] = bool.Parse(new_value);
                         }
@@ -192,22 +194,22 @@ while (runing)
             }
         case 5: //delete
             {
-                Console.WriteLine("Ingrese el nombre del contacto que desea eliminar: ");
-                var contactName_d = Console.ReadLine();
+                Console.WriteLine("Por favor ingrese el nombre del contacto que desea eliminar: ");
+                var getUserContactNameForTheDeleteMethod = Console.ReadLine();
 
 
                 foreach (var id in ids)
                 {
-                    var getName_d = names[id];
-                    var getLastname_d = lastnames[id];
-                    var getAdress_d = addresses[id];
-                    var getTelephone_d = telephones[id];
-                    var getEmail_d = emails[id];
-                    var getAge_d = ages[id];
-                    var getBestFriend_d = bestFriends[id];
-                    
+                    var getUserContactNameToDeleteContact = names[id];
+                    var getUserLastNameToDeleteContact = lastnames[id];
+                    var getUserAdressToDeleteContact = addresses[id];
+                    var getUserTelephoneToDeleteContact = telephones[id];
+                    var getUserEmailToDeleteContact = emails[id];
+                    var getUserAgeToDeleteContact = ages[id];
+                    var getUserfriendToDeleteContact = bestFriends[id];
 
-                    if (contactName_d == names[id])
+
+                    if (getUserContactNameForTheDeleteMethod == names[id])
                     {
                         names[id] = string.Empty;
                         lastnames[id] = string.Empty;
