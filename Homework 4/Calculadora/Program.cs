@@ -58,12 +58,17 @@ try
             break;
 
         case 3:
+            //Creating a variable with 1 as a value to multiply it by every element from the array:
+            var one = 1;
+
             foreach (int typedNumber in typedNumbers)
             {
-                result *= typedNumber;
+                one = one * typedNumber;
+                result = one;
             }
 
             break;
+
         case 4:
             foreach (int typedNumber in typedNumbers)
             {
