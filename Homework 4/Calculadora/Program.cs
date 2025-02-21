@@ -70,10 +70,16 @@ try
             break;
 
         case 4:
-            foreach (int typedNumber in typedNumbers)
+            //First element from TypedNumbers list for the Division Method:
+
+            var thefirstElementFromTypedNumbers = typedNumbers[0];
+
+            for (int index = 1; index < typedNumbers.Count(); index++)
             {
-                result /= typedNumber;
+                thefirstElementFromTypedNumbers = thefirstElementFromTypedNumbers / typedNumbers[index];
+                result = thefirstElementFromTypedNumbers;
             }
+
             break;
         default:
             result = 0;
