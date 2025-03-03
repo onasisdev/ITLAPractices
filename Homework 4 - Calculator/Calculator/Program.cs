@@ -1,122 +1,165 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿List<decimal> typedNumbers = new List<decimal>();
 
-List<decimal> userTypedNumbers = new List<decimal>();
 
-int selectOperation;
-
-int wantToContinue = 0;
 
 decimal result = 0;
+int typedOption = 1;
+int wantToContinue = 0;
+bool running = true;
 
-try
+
+
+
+Console.WriteLine("This is the best calculator");
+
+while (running)
 {
-    Console.WriteLine(
-        "This is a simple calculator that performs \naddition, subtraction, multiplication and division.\n"
-        );
+    DisplayHeader();
 
-
-    Console.WriteLine("""
-
-    Select the mathematical operation you would like to perform:
-    1. Addition 2. Subtraction 3. Multiplication 4. Division
-
-    """);
-
-    selectOperation = Convert.ToInt32(Console.ReadLine());
-
-
-    if (selectOperation <= 4)
+    try
     {
-        Console.WriteLine("Enter the first number: ");
-        userTypedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
+        typedOption = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Enter the second number: ");
-        userTypedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
+        if (typedOption == 5)
+        { running = false; }
+        else
+        {
+            Console.WriteLine("Please Type the first number");
+            typedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
 
-        Console.WriteLine("¿Do you want to continue inserting numbers? Select: 1.Yes or 2.No");
-        wantToContinue = Convert.ToInt32(Console.ReadLine());
-    }
-    else
-    {
-        Console.WriteLine("You need to select one of the options as described above.");
-    }
+            Console.WriteLine("Please Type the second number");
+            typedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
 
-
-    while (wantToContinue == 1)
-    {
-        Console.WriteLine("Enter another number: ");
-        userTypedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
-
-        Console.WriteLine("¿Do you want to continue inserting numbers? Select: 1.Yes or 2.No");
-        wantToContinue = Convert.ToInt32(Console.ReadLine());
-    }
-
-
-    switch (selectOperation)
-    {
-        case 1:
-
-            foreach (decimal userTypedNumber in userTypedNumbers)
+            while (wantToContinue != 2)
             {
-                result += userTypedNumber;
+                Console.WriteLine("you want to continue inserting numbers? 1. Yes, 2. No");
+                wantToContinue = Convert.ToInt32(Console.ReadLine());
+                if (wantToContinue == 1)
+                {
+                    Console.WriteLine("Please Type another number");
+                    typedNumbers.Add(Convert.ToDecimal(Console.ReadLine()));
+                }
             }
 
-            Console.WriteLine($"The result of the operation is {result}. ");
 
-            break;
+            decimal firstValueFromTypedNumbers = typedNumbers[0];
 
-        case 2:
-
-            var firstElementToCalcSubtraction = userTypedNumbers[0];
-
-            for (int index = 1; index < userTypedNumbers.Count; index++)
+            switch (typedOption)
             {
-                firstElementToCalcSubtraction = firstElementToCalcSubtraction - userTypedNumbers[index];
-                result = firstElementToCalcSubtraction;
+                case 1:
+                    {
+                        result = AddList(typedNumbers);
+                    }
+                    break;
+
+                case 2:
+                    {
+                        result = Subtract(typedNumbers, ref firstValueFromTypedNumbers);
+                        typedNumbers.Clear();
+                    }
+                    break;
+
+                case 3:
+                    {
+                        result = Multiply(typedNumbers, ref firstValueFromTypedNumbers);
+                        typedNumbers.Clear();
+                    }
+                    break;
+
+                case 4:
+                    {
+                        result = Divide(typedNumbers, ref firstValueFromTypedNumbers);
+                        typedNumbers.Clear();
+                    }
+                    break;
+
+
+                default:
+                    result = 0;
+                    break;
             }
 
-            Console.WriteLine($"The result of the operation is {result}. ");
-
-            break;
-
-        case 3:
-
-            var firstElementToCalcMultiplication = userTypedNumbers[0];
-
-            for (int index = 1; index < userTypedNumbers.Count; index++)
-            {
-                firstElementToCalcMultiplication = firstElementToCalcMultiplication * userTypedNumbers[index];
-                result = firstElementToCalcMultiplication;
-            }
-
-            Console.WriteLine($"The result of the operation is {result}. ");
-
-            break;
-
-        case 4:
-
-            var firstElementToCalcDivision = userTypedNumbers[0];
-
-            for (int index = 1; index < userTypedNumbers.Count; index++)
-            {
-                firstElementToCalcDivision = firstElementToCalcDivision / userTypedNumbers[index];
-                result = firstElementToCalcDivision;
-            }
-
-            Console.WriteLine($"The result of the operation is {result}. ");
-
-            break;
+            Console.WriteLine($"The Result of the operation is:{result}");
+        }
     }
+    catch (DivideByZeroException ex)
+    {
+        Console.WriteLine($"you can not divide by zero: {ex.Message}");
+    }
+    catch (ArithmeticException ex)
+    {
+        Console.WriteLine($"you can not divide by zero: {ex.Message}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"You need to choose a correct option: {ex.Message}");
+    }
+    finally
+    {
+        Console.WriteLine("Closing Db Conection");
+    }
+
 }
-catch (FormatException)
+//procceess
+static void AddByRef(ref decimal valueToModify, decimal value)
 {
-    Console.WriteLine("The input was not in correct format.");
-}
-catch (DivideByZeroException)
-{
-    Console.WriteLine("You can not divide by 0.");
+    valueToModify += value;
 }
 
-Console.WriteLine("Press any key to exit.");
+//function
+static decimal Add(decimal valueToModify, decimal value)
+{
+    valueToModify += value;
+    return valueToModify;
+}
 
-Console.ReadKey();
+static decimal Subtract(List<decimal> getTypedNumbers, ref decimal getFirstValueFromTypedNumbers)
+{
+    for (int i = 1; i < getTypedNumbers.Count; i++)
+    {
+        getFirstValueFromTypedNumbers -= getTypedNumbers[i];
+    }
+    return getFirstValueFromTypedNumbers;
+    
+}
+
+static decimal Multiply(List<decimal> getTypedNumbers, ref decimal getFirstValueFromTypedNumbers)
+{
+    for (int i = 1; i < getTypedNumbers.Count; i++)
+    {
+        getFirstValueFromTypedNumbers *= getTypedNumbers[i];
+    }
+    return getFirstValueFromTypedNumbers;
+
+}
+
+static decimal Divide(List<decimal> getTypedNumbers, ref decimal getFirstValueFromTypedNumbers)
+{
+    for (int i = 1; i < getTypedNumbers.Count; i++)
+    {
+        getFirstValueFromTypedNumbers /= getTypedNumbers[i];
+    }
+    return getFirstValueFromTypedNumbers;
+
+}
+
+
+
+static decimal AddList(List<decimal> typedNumbers)
+{
+    decimal result = 0;
+    foreach (int typedNumber in typedNumbers)
+    {
+        result = Add(result, typedNumber);
+        // AddByRef(ref result, typedNumber);
+        // result += typedNumber;
+    }
+    return result;
+}
+
+static void DisplayHeader()
+{
+    Console.WriteLine("Please Type the option number than you want");
+    Console.WriteLine("---------------------------------------");
+    Console.WriteLine("1. Sum, \n2. Substract,  \n3. Multiplication,  \n4. Division,  \n5. Exit");
+}
