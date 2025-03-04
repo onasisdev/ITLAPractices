@@ -25,41 +25,15 @@ try
 
         int typeOption = Convert.ToInt32(Console.ReadLine());
 
+        string getName = string.Empty;
+        string getLastName = string.Empty;
+        var varNameAndLastNameIncorrect = string.Empty;
+        bool NameAndLastNameCorrect = false;
+
         switch (typeOption)
         {
             case 1:
                 {
-                    //Console.WriteLine("Digite el nombre de la persona");
-                    //string name = Console.ReadLine();
-                    //Console.WriteLine("Digite el apellido de la persona");
-                    //string lastname = Console.ReadLine();
-                    //Console.WriteLine("Digite la dirección");
-                    //string address = Console.ReadLine();
-                    //Console.WriteLine("Digite el telefono de la persona");
-                    //string phone = Console.ReadLine();
-                    //Console.WriteLine("Digite el email de la persona");
-                    //string email = Console.ReadLine();
-                    //Console.WriteLine("Digite la edad de la persona en números");
-                    //int age = Convert.ToInt32(Console.ReadLine());
-                    //Console.WriteLine("Especifique si es mejor amigo: 1. Si, 2. No");
-                    ////var temp = Convert.ToInt32(Console.ReadLine());
-                    ////bool isBestFriend;
-                    ////if (temp == 1)
-                    ////{ isBestFriend = true; }
-                    ////else
-                    ////{ isBestFriend = false; }
-                    //bool isBestFriend = Convert.ToInt32(Console.ReadLine()) == 1;
-
-                    //var id = ids.Count + 1;
-                    //ids.Add(id);
-                    //names.Add(id, name);
-                    //lastnames.Add(id, lastname);
-                    //addresses.Add(id, address);
-                    //telephones.Add(id, phone);
-                    //emails.Add(id, email);
-                    //ages.Add(id, age);
-                    //bestFriends.Add(id, isBestFriend);
-
                     AddContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
 
                 }
@@ -70,17 +44,7 @@ try
                     Console.WriteLine($"____________________________________________________________________________________________________________________________");
                     foreach (var id in ids)
                     {
-                        var isBestFriend = bestFriends[id];
-
-                        //string isBestFriendStr;
-
-                        //if (isBestFriend == true)
-                        //{
-                        //    isBestFriendStr = "Si";
-                        //}
-                        //else {
-                        //    isBestFriendStr = "No";
-                        //}
+                        var isBestFriend = bestFriends[id];                
 
                         string isBestFriendStr = (isBestFriend == true) ? "Si" : "No";
                         Console.WriteLine($"{names[id]}         {lastnames[id]}         {addresses[id]}         {telephones[id]}            {emails[id]}            {ages[id]}          {isBestFriendStr}");
@@ -90,17 +54,22 @@ try
                 break;
             case 3: //search
                 {
+                 
                     Console.WriteLine("Ingrese el nombre del contacto que desea buscar: ");
-                    var getName = Console.ReadLine();
+                    getName = Console.ReadLine().ToLower();
 
                     Console.WriteLine("Ingrese el apellido del contacto que desea buscar: ");
-                    var getLastName = Console.ReadLine();
+                    getLastName = Console.ReadLine().ToLower();
+
+                    
+
 
                     foreach (var id in ids)
                     {
-
-                        if (getName == names[id] && getLastName == lastnames[id])
-                        {
+ 
+                            if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
+                            {
+                            
                             Console.WriteLine($"""
                             Datos del contacto:
                             Nombre: {names[id]}
@@ -111,7 +80,26 @@ try
                             Edad: {ages[id]}
                             Es mejor amigo?: {bestFriends[id]}
                             """);
-                        }
+
+                            NameAndLastNameCorrect = true;
+                            break;
+
+
+
+                        } 
+                        
+                        if (!NameAndLastNameCorrect)
+                        {
+                            Console.WriteLine("""
+                        No existe un contacto con ese nombre y apellido.
+
+                        Si le permite buscar contactos
+                        y el mensaje continua apareciendo, lo ha podido
+                        realizar satisfactoriamente.
+
+                        """);
+                         
+                        }  
                     }
                 }
 
@@ -119,23 +107,15 @@ try
             case 4: //modify
                 {
                     Console.WriteLine("Ingrese el nombre del contacto en el cual desea modificar algún dato:");
-                    var getNameForTheModifyMethod = Console.ReadLine();
+                    getName = Console.ReadLine().ToLower();
 
                     Console.WriteLine("Ingrese el apellido del contacto en el cual desea modificar algún dato:");
-                    var getLastNameForTheModifyMethod = Console.ReadLine();
+                    getLastName = Console.ReadLine().ToLower();
 
 
                     foreach (var id in ids)
                     {
-                        if (!getNameForTheModifyMethod.Contains(names[id]) || !getLastNameForTheModifyMethod.Contains(lastnames[id]))
-                        {
-                            Console.WriteLine("""
-                            Si el programa le permite ingresar un nuevo valor, significa que ha ingresado el nombre y apellido correctamente.
-                            De lo contrario, los ha ingresado incorrectamente.
-                            """);
-                        }
-
-                        if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                        if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                         {
                             Console.WriteLine("""
                     Ingrese lo que desea modificar del contacto, las opciones son:
@@ -151,7 +131,7 @@ try
                             {
                                 case 1:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         names[id] = newValue;
                                     }
@@ -160,7 +140,7 @@ try
 
                                 case 2:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         lastnames[id] = newValue;
                                     }
@@ -169,7 +149,7 @@ try
 
                                 case 3:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         addresses[id] = newValue;
                                     }
@@ -178,7 +158,7 @@ try
 
                                 case 4:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         telephones[id] = newValue;
                                     }
@@ -187,7 +167,7 @@ try
 
                                 case 5:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         emails[id] = newValue;
                                     }
@@ -196,7 +176,7 @@ try
 
                                 case 6:
 
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         ages[id] = Convert.ToInt32(newValue);
                                     }
@@ -204,13 +184,24 @@ try
                                     break;
 
                                 case 7:
-                                    if (getNameForTheModifyMethod == names[id] && getLastNameForTheModifyMethod == lastnames[id])
+                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                                     {
                                         bestFriends[id] = Convert.ToBoolean(newValue);
                                     }
 
                                     break;
                             }
+                        }
+                        if (!NameAndLastNameCorrect)
+                        {
+                            Console.WriteLine("""
+                                No existe un contacto con ese nombre y apellido.
+                                
+                                Si le permite agregar un nuevo valor
+                                y el mensaje continua apareciendo, ha podido
+                                modificar el contacto satisfactoriamente.
+
+                                """);
                         }
                     }
                 }
@@ -219,23 +210,39 @@ try
             case 5: //delete
                 {
                     Console.WriteLine("Ingrese el nombre del contacto que desea eliminar:");
-                    var getNameForTheDeleteMethod = Console.ReadLine();
+                    getName = Console.ReadLine().ToLower();
 
                     Console.WriteLine("Ingrese el apellido del contacto que desea eliminar:");
-                    var getLastNameForTheDeleteMethod = Console.ReadLine();
+                    getLastName = Console.ReadLine().ToLower();
 
 
                     foreach (var id in ids)
                     {
-                        if (getNameForTheDeleteMethod == names[id] && getLastNameForTheDeleteMethod == lastnames[id])
+                        if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                         {
-                            names[id] = string.Empty;
-                            lastnames[id] = string.Empty;
-                            addresses[id] = string.Empty;
-                            telephones[id] = string.Empty;
-                            emails[id] = string.Empty;
-                            ages[id] = default;
-                            bestFriends[id] = default;
+
+                            names.Remove(id);
+                            lastnames.Remove(id);
+                            addresses.Remove(id);
+                            telephones.Remove(id);
+                            emails.Remove(id);
+                            ages.Remove(id);
+                            bestFriends.Remove(id);
+
+                            ids.Remove(id);
+
+                            Console.WriteLine("Contacto eliminado satisfactoriamente.");
+                            break;
+                        }
+                        if (!NameAndLastNameCorrect)
+                        {
+                            Console.WriteLine("""
+                                No existe un contacto con ese nombre y apellido.
+                                
+                                Si le aparece el mensaje "Contacto eliminado satisfactoriamente."
+                                lo ha podido eliminar satisfactoriamente.
+
+                                """);
                         }
                     }
                 }
@@ -254,8 +261,6 @@ catch (FormatException)
 {
     Console.WriteLine("El valor que ha ingresado no esta en el formato correcto.");
 }
-
-
 
 static void AddContact(List<int> ids, Dictionary<int, string> names, Dictionary<int, string> lastnames, Dictionary<int, string> addresses, Dictionary<int, string> telephones, Dictionary<int, string> emails, Dictionary<int, int> ages, Dictionary<int, bool> bestFriends)
 {
