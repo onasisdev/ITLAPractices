@@ -61,7 +61,6 @@ try
                     Console.WriteLine("Ingrese el apellido del contacto que desea buscar: ");
                     getLastName = Console.ReadLine().ToLower();
 
-                    
 
 
                     foreach (var id in ids)
@@ -117,6 +116,8 @@ try
                     {
                         if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                         {
+                            NameAndLastNameCorrect = true;
+
                             Console.WriteLine("""
                     Ingrese lo que desea modificar del contacto, las opciones son:
                     1.Nombre  2.Apellido  3.Dirección  4.Teléfono  5.Email  6.Edad  7.Es mejor amigo?
@@ -231,7 +232,10 @@ try
 
                             ids.Remove(id);
 
+
                             Console.WriteLine("Contacto eliminado satisfactoriamente.");
+
+                            NameAndLastNameCorrect = true;
                             break;
                         }
                         if (!NameAndLastNameCorrect)
