@@ -62,10 +62,9 @@ try
                     getLastName = Console.ReadLine().ToLower();
 
 
-
                     foreach (var id in ids)
                     {
- 
+
                             if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                             {
                             
@@ -82,23 +81,12 @@ try
 
                             NameAndLastNameCorrect = true;
                             break;
-
-
-
                         } 
-                        
-                        if (!NameAndLastNameCorrect)
-                        {
-                            Console.WriteLine("""
-                        No existe un contacto con ese nombre y apellido.
-
-                        Si le permite buscar contactos
-                        y el mensaje continua apareciendo, lo ha podido
-                        realizar satisfactoriamente.
-
-                        """);
-                         
-                        }  
+                    }
+                    
+                    if (!NameAndLastNameCorrect)
+                    {
+                        Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
                 }
 
@@ -126,6 +114,8 @@ try
 
                             Console.WriteLine("Ingrese el nuevo valor: ");
                             var newValue = Console.ReadLine();
+
+                            Console.WriteLine("Contacto modificado satisfactoriamente.");
 
 
                             switch (selectOptionToModifyContact)
@@ -193,17 +183,11 @@ try
                                     break;
                             }
                         }
-                        if (!NameAndLastNameCorrect)
-                        {
-                            Console.WriteLine("""
-                                No existe un contacto con ese nombre y apellido.
-                                
-                                Si le permite agregar un nuevo valor
-                                y el mensaje continua apareciendo, ha podido
-                                modificar el contacto satisfactoriamente.
-
-                                """);
-                        }
+                    }
+                    
+                    if (!NameAndLastNameCorrect)
+                    {
+                        Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
                 }
                 break;
@@ -238,16 +222,11 @@ try
                             NameAndLastNameCorrect = true;
                             break;
                         }
-                        if (!NameAndLastNameCorrect)
-                        {
-                            Console.WriteLine("""
-                                No existe un contacto con ese nombre y apellido.
-                                
-                                Si le aparece el mensaje "Contacto eliminado satisfactoriamente."
-                                lo ha podido eliminar satisfactoriamente.
+                    }
 
-                                """);
-                        }
+                    if (!NameAndLastNameCorrect)
+                    {
+                        Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
                 }
                 break;
