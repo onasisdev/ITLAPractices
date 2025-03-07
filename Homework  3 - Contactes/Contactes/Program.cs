@@ -28,7 +28,7 @@ try
         string getName = string.Empty;
         string getLastName = string.Empty;
         var varNameAndLastNameIncorrect = string.Empty;
-        bool NameAndLastNameCorrect = false;
+        bool contactFound = false;
 
         switch (typeOption)
         {
@@ -79,12 +79,12 @@ try
                             Es mejor amigo?: {bestFriends[id]}
                             """);
 
-                            NameAndLastNameCorrect = true;
+                            contactFound = true;
                             break;
                         } 
                     }
                     
-                    if (!NameAndLastNameCorrect)
+                    if (!contactFound)
                     {
                         Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
@@ -104,7 +104,7 @@ try
                     {
                         if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
                         {
-                            NameAndLastNameCorrect = true;
+                            contactFound = true;
 
                             Console.WriteLine("""
                     Ingrese lo que desea modificar del contacto, las opciones son:
@@ -185,7 +185,7 @@ try
                         }
                     }
                     
-                    if (!NameAndLastNameCorrect)
+                    if (!contactFound)
                     {
                         Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
@@ -219,12 +219,12 @@ try
 
                             Console.WriteLine("Contacto eliminado satisfactoriamente.");
 
-                            NameAndLastNameCorrect = true;
+                            contactFound = true;
                             break;
                         }
                     }
 
-                    if (!NameAndLastNameCorrect)
+                    if (!contactFound)
                     {
                         Console.WriteLine("No existe un contacto con ese nombre y apellido.");
                     }
