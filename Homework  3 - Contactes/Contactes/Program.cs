@@ -121,64 +121,44 @@ try
                             switch (selectOptionToModifyContact)
                             {
                                 case 1:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        names[id] = newValue;
-                                    }
+                                    
+                                    names[id] = newValue;
 
                                     break;
 
                                 case 2:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        lastnames[id] = newValue;
-                                    }
+                                    
+                                    lastnames[id] = newValue;
 
                                     break;
 
                                 case 3:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        addresses[id] = newValue;
-                                    }
+                                    
+                                    addresses[id] = newValue;
 
                                     break;
 
                                 case 4:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        telephones[id] = newValue;
-                                    }
+                                    
+                                    telephones[id] = newValue;
 
                                     break;
 
                                 case 5:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        emails[id] = newValue;
-                                    }
+                                    
+                                    emails[id] = newValue;
 
                                     break;
 
                                 case 6:
-
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        ages[id] = Convert.ToInt32(newValue);
-                                    }
+                                    
+                                    ages[id] = Convert.ToInt32(newValue);
 
                                     break;
 
                                 case 7:
-                                    if (names[id].ToLower().Contains(getName) && lastnames[id].ToLower().Contains(getLastName))
-                                    {
-                                        bestFriends[id] = Convert.ToBoolean(newValue);
-                                    }
+                                    
+                                    bestFriends[id] = Convert.ToBoolean(newValue);
 
                                     break;
                             }
