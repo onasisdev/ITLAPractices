@@ -60,7 +60,7 @@ public class Program
 
                 if (WishToMakeWithdrawalOrTransference == 1)
                 {
-                    Console.WriteLine("Ingrese la cantidad que desea transferir:");
+                    Console.WriteLine("Por favor ingrese la cantidad que desea transferir:");
                     Transference = Convert.ToDecimal(Console.ReadLine());
                 } 
                 else if (WishToMakeWithdrawalOrTransference > 2 || WishToMakeWithdrawalOrTransference == 0)
@@ -75,7 +75,7 @@ public class Program
 
                 if (WishToMakeWithdrawalOrTransference == 1)
                 {
-                    Console.WriteLine("Ingrese la cantidad que desea reintegrar:");
+                    Console.WriteLine("Por favor ingrese la cantidad que desea reintegrar:");
                     Withdrawal = Convert.ToDecimal(Console.ReadLine());
                 }
                 else if (WishToMakeWithdrawalOrTransference > 2 || WishToMakeWithdrawalOrTransference == 0)
@@ -87,9 +87,9 @@ public class Program
             public void MostrarValores()
             {
                 Console.WriteLine($"""
-                    Dinero ingresado:{Enter} 
-                    Dinero transferido: {Transference} 
-                    Dinero reintegrado: {Withdrawal}
+                    Dinero total ingresado:{Enter} 
+                    Dinero total transferido: {Transference} 
+                    Dinero total reintegrado: {Withdrawal}
                     """
                 );
             }
