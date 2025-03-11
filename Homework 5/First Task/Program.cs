@@ -41,25 +41,25 @@ namespace FirstTask
     }
 
     public class Persona { 
-        public string name;
-        public string lastname;
-        public int age;
-        public bool married;
-        public string identityDocumentNumber;
+        public string Name { get; set;}
+        public string Lastname { get; set; }
+        public int Age { get; set; }
+        public bool Married { get; set; }
+        public string IdentityDocumentNumber { get; set; }
 
         public Persona (string name, string lastname, int age, bool married, string identityDocumentNumber)
         {
-            this.name = name;
-            this.lastname = lastname;
-            this.age = age;
-            this.married = married;
-            this.identityDocumentNumber = identityDocumentNumber;
+            this.Name = name;
+            this.Lastname = lastname;
+            this.Age = age;
+            this.Married = married;
+            this.IdentityDocumentNumber = identityDocumentNumber;
         }
 
         public void HistoryProfessorAction()
         {
             Console.WriteLine($"""
-            El Profesor de historia {name} {lastname} de {age} años de edad
+            El Profesor de historia {Name} {Lastname} de {Age} años de edad
             va a dar una introducción a la materia Historia Universal.
 
             """);
@@ -68,7 +68,7 @@ namespace FirstTask
         public void DentistAction()
         {
             Console.WriteLine($"""
-            El Odóntologo {name} {lastname} de {age} años de edad 
+            El Odóntologo {Name} {Lastname} de {Age} años de edad 
             va a chequearle una muela a un paciente.
 
             """);
@@ -77,7 +77,7 @@ namespace FirstTask
         public void PsychologistAction()
         {
             Console.WriteLine($"""
-            El Psicólogo {name} {lastname} de {age} años de edad 
+            El Psicólogo {Name} {Lastname} de {Age} años de edad 
             va a realizar una terapia familiar.
 
             """);
@@ -86,7 +86,7 @@ namespace FirstTask
         public void MechanicalEngAction()
         {
             Console.WriteLine($"""
-            El Ingeniero Mecánico {name} {lastname} de {age} años de edad 
+            El Ingeniero Mecánico {Name} {Lastname} de {Age} años de edad 
             va a diseñar una pieza para un robot.
 
             """);
@@ -95,7 +95,7 @@ namespace FirstTask
         public void CivilEngAction()
         {
             Console.WriteLine($"""
-            El Ingeniero Civil {name} {lastname} de {age} años de edad 
+            El Ingeniero Civil {Name} {Lastname} de {Age} años de edad 
             va a diseñar una carretera.
 
             """);
@@ -104,7 +104,7 @@ namespace FirstTask
         public void ElectricalEngAction()
         {
             Console.WriteLine($"""
-            El Ingeniero Eléctrico {name} {lastname} de {age} años de edad 
+            El Ingeniero Eléctrico {Name} {Lastname} de {Age} años de edad 
             va a evaluar unos equipos electrónicos.
 
             """);
@@ -113,7 +113,7 @@ namespace FirstTask
         public void ChemicalEngAction()
         {
             Console.WriteLine($"""
-            El Ingeniero Químico {name} {lastname} de {age} años de edad 
+            El Ingeniero Químico {Name} {Lastname} de {Age} años de edad 
             va a producir nuevos fármacos.
             """);
         }
