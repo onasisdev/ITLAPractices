@@ -11,7 +11,7 @@ public class Program
         {
             try
             {
-                Cuenta account = new Cuenta(0, 0, 0, 0);
+                Cuenta account = new Cuenta(0, 0, 0);
                 account.HacerIngreso();
                 account.HacerTransferencia();
                 account.Reintegro();
@@ -33,9 +33,13 @@ public class Program
             public decimal Transference { get; set; }
             public int WishToMakeWithdrawalOrTransference{ get; set; }
 
-            public Cuenta(decimal enter, decimal withdrawal, decimal transference, int wishToMakeWithdrawalOrTransference)
+            public Cuenta()
             {
-                this.Enter = enter;
+                Enter = 0;
+            }
+            public Cuenta(decimal withdrawal, decimal transference, int wishToMakeWithdrawalOrTransference)
+            {
+            
                 this.Withdrawal = withdrawal;
                 this.Transference = transference;
                 this.WishToMakeWithdrawalOrTransference = wishToMakeWithdrawalOrTransference;
