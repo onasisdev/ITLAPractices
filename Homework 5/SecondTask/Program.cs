@@ -1,8 +1,6 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 
-
-
 namespace SecondTask
 {
 public class Program
