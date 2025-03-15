@@ -10,6 +10,7 @@ namespace FifthTask
             {
                 Fraccion fraction = new Fraccion();
                 fraction.OperacionSeleccionada();
+               
             }
             catch (DivideByZeroException)
             {
@@ -48,19 +49,22 @@ namespace FifthTask
                 1.Suma 2.Resta 3.Multiplicación 4.División
                 """);
 
+
             SelectedOperation = Convert.ToInt32(Console.ReadLine());
 
             switch (SelectedOperation)
             {
                 case 1:
+                    Preguntas();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {SumarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
                     """);
-
-                break;
+                    
+                    break;
 
                 case 2:
+                    Preguntas();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {RestarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -69,6 +73,7 @@ namespace FifthTask
                     break;
 
                 case 3:
+                    Preguntas();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {MultiplicarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -77,30 +82,33 @@ namespace FifthTask
                     break;
 
                 case 4:
+                    Preguntas();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {DividirFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
                     """);
 
                     break;
-
             }
+        }
+
+        public void Preguntas()
+        {
+            Console.WriteLine("Por favor ingrese el numerador de la primera fracción: ");
+            UserFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Por favor ingrese el denominador de la primera fracción: ");
+            UserFirstFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Por favor ingrese el numerador de la segunda fracción: ");
+            UserSecondFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Por favor ingrese el denominador de la segunda fracción: ");
+            UserSecondFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());  
         }
 
         public static decimal SumarFracciones(decimal userFirstFractionAndNumerator, decimal userFirstFractionAndDenominator, decimal userSecondFractionAndNumerator, decimal userSecondFractionAndDenominator, decimal fractionCalc)
         {
-            Console.WriteLine("Por favor ingrese el numerador de la primera fracción para sumar: ");
-            userFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la primera fracción para sumar: ");
-            userFirstFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el numerador de la segunda fracción para sumar: ");
-            userSecondFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la segunda fracción para sumar: ");
-            userSecondFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
             fractionCalc = (userFirstFractionAndNumerator / userFirstFractionAndDenominator) + (userSecondFractionAndNumerator / userSecondFractionAndDenominator);
 
             return fractionCalc;   
@@ -108,18 +116,6 @@ namespace FifthTask
 
         public static decimal RestarFracciones(decimal userFirstFractionAndNumerator, decimal userFirstFractionAndDenominator, decimal userSecondFractionAndNumerator, decimal userSecondFractionAndDenominator, decimal fractionCalc)
         {
-            Console.WriteLine("Por favor ingrese el numerador de la primera fracción para restar: ");
-            userFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la primera fracción para restar: ");
-            userFirstFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el numerador de la segunda fracción para restar: ");
-            userSecondFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la segunda fracción para restar: ");
-            userSecondFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
             fractionCalc = (userFirstFractionAndNumerator / userFirstFractionAndDenominator) - (userSecondFractionAndNumerator / userSecondFractionAndDenominator);
 
             return fractionCalc;
@@ -127,18 +123,6 @@ namespace FifthTask
 
         public static decimal MultiplicarFracciones(decimal userFirstFractionAndNumerator, decimal userFirstFractionAndDenominator, decimal userSecondFractionAndNumerator, decimal userSecondFractionAndDenominator, decimal fractionCalc)
         {
-            Console.WriteLine("Por favor ingrese el numerador de la primera fracción para multiplicar: ");
-            userFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la primera fracción para multiplicar: ");
-            userFirstFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el numerador de la segunda fracción para multiplicar: ");
-            userSecondFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la segunda fracción para multiplicar: ");
-            userSecondFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
             fractionCalc = (userFirstFractionAndNumerator / userFirstFractionAndDenominator) * (userSecondFractionAndNumerator / userSecondFractionAndDenominator);
 
             return fractionCalc;
@@ -146,18 +130,6 @@ namespace FifthTask
 
         public static decimal DividirFracciones(decimal userFirstFractionAndNumerator, decimal userFirstFractionAndDenominator, decimal userSecondFractionAndNumerator, decimal userSecondFractionAndDenominator, decimal fractionCalc)
         {
-            Console.WriteLine("Por favor ingrese el numerador de la primera fracción para dividir: ");
-            userFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la primera fracción para dividir: ");
-            userFirstFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el numerador de la segunda fracción para dividir: ");
-            userSecondFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese el denominador de la segunda fracción para dividir: ");
-            userSecondFractionAndDenominator = Convert.ToDecimal(Console.ReadLine());
-
             fractionCalc = (userFirstFractionAndNumerator / userFirstFractionAndDenominator) / (userSecondFractionAndNumerator / userSecondFractionAndDenominator);
 
             return fractionCalc;
