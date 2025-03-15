@@ -55,7 +55,7 @@ namespace FifthTask
             switch (SelectedOperation)
             {
                 case 1:
-                    Preguntas();
+                    PreguntasParaHacerOperacionesFracccionarias();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {SumarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -64,7 +64,7 @@ namespace FifthTask
                     break;
 
                 case 2:
-                    Preguntas();
+                    PreguntasParaHacerOperacionesFracccionarias();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {RestarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -73,7 +73,7 @@ namespace FifthTask
                     break;
 
                 case 3:
-                    Preguntas();
+                    PreguntasParaHacerOperacionesFracccionarias();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {MultiplicarFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -82,7 +82,7 @@ namespace FifthTask
                     break;
 
                 case 4:
-                    Preguntas();
+                    PreguntasParaHacerOperacionesFracccionarias();
                     Console.WriteLine($"""
                     El resultado de la operación es:
                     {DividirFracciones(UserFirstFractionAndNumerator, UserFirstFractionAndDenominator, UserSecondFractionAndNumerator, UserSecondFractionAndDenominator, FractionCalc)}
@@ -92,7 +92,7 @@ namespace FifthTask
             }
         }
 
-        public void Preguntas()
+        public void PreguntasParaHacerOperacionesFracccionarias()
         {
             Console.WriteLine("Por favor ingrese el numerador de la primera fracción: ");
             UserFirstFractionAndNumerator = Convert.ToDecimal(Console.ReadLine());
