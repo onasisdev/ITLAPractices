@@ -28,9 +28,8 @@
         public Dictionary<int, string> emails = new Dictionary<int, string>();
         public List<string> addresses = new List<string>();
         public List<int> ids = new List<int>();
-
-
-    public void FunctionsBasedOnUserSelection()
+        
+        public void FunctionsBasedOnUserSelection()
         {
             bool running = true;
 
