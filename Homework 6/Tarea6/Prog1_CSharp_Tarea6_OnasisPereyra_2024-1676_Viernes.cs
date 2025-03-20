@@ -71,6 +71,7 @@
                 }
             }
         }
+
         public void AddContact(ref Dictionary<int, string> names, ref Dictionary<int, string> phones, ref Dictionary<int, string> emails, ref List<string> addresses, ref List<int> ids)
         {
             Console.WriteLine("Vamos a agregar ese contacte que te trae loco.");
